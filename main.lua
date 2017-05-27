@@ -61,18 +61,18 @@ function love.update(dt)
 end
 
 function love.draw()
-  local desiredAspect = 1024/640
+  local desiredAspect = 1280/720
   local actualAspect = love.graphics.getWidth()/love.graphics.getHeight()
   if actualAspect > desiredAspect then
     local xoff = love.graphics.getWidth() - (desiredAspect * love.graphics.getHeight())
     --love.graphics.setScissor(math.floor(xoff/2), 0, love.graphics.getWidth() - xoff, love.graphics.getHeight())
     love.graphics.translate(math.floor(xoff/2), 0)
-    love.graphics.scale(desiredAspect * love.graphics.getHeight() / 1024, love.graphics.getHeight() / 640)
+    love.graphics.scale(desiredAspect * love.graphics.getHeight() / 1280, love.graphics.getHeight() / 720)
   else
     local yoff = love.graphics.getHeight() - (love.graphics.getWidth()/desiredAspect)
     --love.graphics.setScissor(0, math.floor(yoff/2), love.graphics.getWidth(), love.graphics.getHeight() - yoff)
     love.graphics.translate(0, math.floor(yoff/2))
-    love.graphics.scale(love.graphics.getWidth() / 1024, (love.graphics.getWidth()/desiredAspect)/640)
+    love.graphics.scale(love.graphics.getWidth() / 1280, (love.graphics.getWidth()/desiredAspect)/720)
   end
   -- !! DRAW !!
 end

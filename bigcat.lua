@@ -20,13 +20,19 @@ function bigcat:load()
   bigcat.headimg = love.graphics.newImage('data/catte/head.png')
 end
 
+local talk = require('talk')
+
 function bigcat:draw()
   love.graphics.clear(255, 255, 255, 255)
   love.graphics.setColor(255, 255, 255, 255)
   love.graphics.draw(bigcat.bodyimg, bigcat.bxy.x, bigcat.bxy.y, 0, 1, 1, bigcat.bodyimg:getWidth()/2, 0)
   love.graphics.draw(bigcat.headimg, bigcat.hxy.x, bigcat.hxy.y, 0, 1, 1, bigcat.headimg:getWidth()/2, 0)
+
   love.graphics.setColor(100, 100, 255, bigcat.guidea)
   love.graphics.draw(bigcat.guideimg)
+  love.graphics.setColor(255, 255, 255, 255)
+
+  talk:draw()
 end
 
 return bigcat

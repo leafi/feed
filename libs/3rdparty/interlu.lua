@@ -51,10 +51,19 @@ local buf = {}
 local _PROMPT = nil
 local _PROMPT2 = nil
 
+M.forcebreak = false
+
+M.intercept = function(line) return line end
+
 function M.interact()
 	while true do
+    if M.forcebreak then
+      M.forcebreak = false
+      break
+    end
 		local line = readline( level1 and (_PROMPT or '> ') or (_PROMPT2 or '>> '))
-		if line then
+    line = M.intercept(line)
+		if line and not M.forcebreak then
 			if level1 then
 				local fun, err
 				fun, err = loadstring( 'return ' .. line )
@@ -99,6 +108,7 @@ function M.interact()
 				end
 			end
 		else
+      M.forcebreak = false
 			break
 		end
 	end

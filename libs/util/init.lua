@@ -19,6 +19,10 @@ require('libs.util.table-patch')
 -- 30log is for classes
 util.class = require('libs.3rdparty.30log-clean')
 
+-- Draw rectangle with vertical color gradient
+--  util.drawrectv(x, y, w, h, colorTop, colorBottom)
+util.drawrectv = require('libs.util.drawrectv')
+
 -- Iconfont!
 --  util.iconfont(text, sz)
 util.iconfont = require('libs.util.iconfont')
@@ -26,6 +30,7 @@ util.iconfont = require('libs.util.iconfont')
 -- Break to live lua console & mess with _G['inspectables']/_G['I'] support
 -- (Needs table.pack from table-patch)
 --  util.breaktoconsole()
+--  util.forceconsoleresume()
 --  util.inspect(...)
 require('libs.util.inspectables')
 

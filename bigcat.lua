@@ -12,7 +12,7 @@ local bigcat = {
     y = 100
   }
 }
-I.bigcat = bigcat
+-- I.bigcat = bigcat
 
 function bigcat:load()
   bigcat.guideimg = love.graphics.newImage('data/catte/guide.png')
